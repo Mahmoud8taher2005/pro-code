@@ -1,0 +1,686 @@
+/* ... (التنسيقات الأساسية مثل * و body و .page-section تبقى كما هي) ... */
+
+/* التنسيق العام لأقسام الخلفية - إعدادات مشتركة */
+.left-section {
+    flex: 1; 
+    background-color: #003366; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* إزالة filter من هنا حتى يمكن تطبيقه بشكل مختلف لكل خلفية */
+}
+
+
+
+
+
+/* 1. خلفية قسم التعريف (Intro) */
+.intro-bg-style {
+    background-image: url('Screenshot 2025-10-18 211240.png'); 
+    /* تطبيق الفلتر الخاص باللون الأزرق الداكن والتشبع القليل */
+    
+}
+
+/* 2. خلفية قسم About Me (العدسة المكبرة) */
+.about-bg-style {
+    background-image: url('Screenshot 2025-10-18 211257.png'); 
+    /* هذه الصورة تبدو جاهزة وداكنة، لذا لا نحتاج لفلتر */
+    filter: none; 
+}
+
+/* 3. خلفية قسم التعليم والشهادات (Education) */
+.edu-bg-style {
+    background-image: url('Screenshot 2025-10-18 211312.png'); 
+    /* يمكن تطبيق نفس فلتر الخلفية الزرقاء الداكنة على هذه الصورة أيضاً */
+    
+}
+
+
+/* ... (باقي تنسيقات .right-section والتفاصيل الأخرى تبقى كما هي) ... */
+/* ============================================== */
+/* 1. إعادة تعيين عام وتنسيق الـ Body */
+/* ============================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif; /* الخط العام */
+    /* يمكنك إزالة لون الخلفية لو كنت تريد رؤية حواف كل قسم بوضوح */
+    background-color: #4682B4; 
+}
+
+/* التنسيق الرئيسي للأقسام التي تشغل كامل الشاشة */
+.page-section {
+    height: 100vh; /* كل قسم يغطي كامل ارتفاع الشاشة */
+    width: 100%;
+    display: flex; /* لتقسيم القسم إلى يسار ويمين */
+}
+
+/* ============================================== */
+/* 2. تنسيق الأقسام الجانبية (Left/Right) */
+/* ============================================== */
+
+/* تنسيق القسم الأيسر (الخلفية الكودية) */
+.left-section {
+    flex: 1; /* يأخذ جزء واحد من المساحة */
+    background-color: #003366; 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* تنسيق القسم الأيمن (المحتوى النصي) */
+.right-section {
+    flex: 1.5; /* يأخذ جزء ونصف من المساحة ليكون أكبر */
+    background-color: #4682B4; /* اللون الأزرق الموحد */
+    color: white; 
+    display: flex;
+    flex-direction: column;
+    padding: 5%; 
+    /* ظل بسيط للفصل بين القسمين إذا لزم الأمر */
+    box-shadow: inset 5px 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+/* لقلب ترتيب الأقسام ليتوافق مع About Me */
+.about-me-section.reversed {
+    flex-direction: row-reverse;
+}
+
+/* ============================================== */
+/* 3. تحديد الخلفيات الثلاثة الجديدة (باستخدام class-based backgrounds) */
+/* ============================================== */
+
+
+
+/* ============================================== */
+/* 4. تنسيقات المحتوى الخاصة بكل قسم */
+/* ============================================== */
+
+/* --- تنسيقات قسم Intro --- */
+.intro-section .right-section {
+    justify-content: center; /* توسيط رأسي */
+    align-items: flex-start;
+    position: relative;
+}
+
+.name {
+    font-size: 2.5em;
+    font-weight: bold;
+    color:#003366;
+   
+}
+.titlle{
+    font-size: 1.5em;
+    font-weight: bold;
+     margin-top: 20px;
+     color:#003366;
+}
+
+.title {
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+.footer-info {
+    position: absolute;
+    bottom: 5%;
+    left: 5%; 
+    text-align: left;
+    font-size: 0.9em;
+    line-height: 1.5;
+    color:#003366;
+}
+
+
+/* --- تنسيقات قسم About Me --- */
+.about-me-section .right-section {
+    justify-content: flex-start; 
+    padding-top: 5%;
+    color:#0e0e0e;
+
+}
+
+
+.about-me-section h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    color:#090909;
+}
+
+.about-me-section h2 { /* Background & Skills titles */
+    font-size: 2em;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color:#0f0f0f;
+}
+
+.about-me-section ul {
+    list-style: none;
+    padding-left: 0;
+    line-height: 1.6;
+    color:#0d0d0d;
+}
+
+.about-me-section ul li::before {
+    content: "\2022"; /* نقطة القائمة */
+    color: white; 
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+    color:#0d0d0d;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 8px 15px;
+    margin-right: 10px;
+    margin-top: 10px;
+    border: 1px solid white;
+    border-radius: 20px;
+    font-size: 1.3em;
+    color:#0a0a0a;
+}
+
+/* --- تنسيقات قسم Education --- */
+.edu-section .right-section {
+    
+    justify-content: flex-start; 
+    padding-top: 10%;
+     color: #011c37;
+    font-size: 2rem;
+}
+
+.edu-section h1 {
+    font-size: 3em;
+    margin-bottom: 60px;
+}
+
+.category-tag {
+    display: inline-block;
+    padding: 5px 15px;
+    margin-bottom: 20px;
+    border: 1px solid white;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.edu-details, .cert-details {
+    margin-bottom: 40px;
+}
+
+.edu-details h3 {
+    font-size: 1.3em;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.edu-details p {
+    font-size: 1em;
+    margin-top: 5px;
+    line-height: 1.5;
+}
+
+.cert-details ul {
+    list-style: none;
+    padding-left: 0;
+    line-height: 1.8;
+    font-size: 1.1em;
+}
+/* ============================================== */
+/* 3. تحديد الخلفيات الجديدة (إضافة Skills BG) */
+/* ============================================== */
+
+/* ... (الخلفيات السابقة: intro-bg-style, about-bg-style, edu-bg-style) ... */
+
+/* 4. خلفية قسم المهارات (Skills) */
+.skills-bg-style {
+    /* يمكنك استخدام أي صورة هنا، أو تكرار واحدة من الصور السابقة */
+    background-image: url('skills-bg.jpg'); 
+    filter: brightness(0.7) hue-rotate(180deg); 
+}
+
+/* ============================================== */
+/* 4. تنسيقات المحتوى الخاصة بكل قسم (إضافة Skills) */
+/* ============================================== */
+
+/* --- تنسيقات قسم Skills & Technology --- */
+.skills-section .left-section {
+    /* توسيط العنوان الكبير رأسيًا وأفقيًا في الخلفية الكودية */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* إزالة الفلتر مؤقتاً لتظهر كلمة Skills بوضوح، أو يمكنك تعديل لونه */
+    filter: none; 
+}
+
+.skills-section .section-title {
+    /* تنسيق العنوان Skills & Technology */
+    font-size: 4.5em; /* حجم كبير جداً */
+    font-weight: bold;
+    color: #4682B4; /* لون النص ليتناسب مع الخلفية الزرقاء في اليمين */
+    /* يمكنك وضع اللون الأبيض لو استخدمت خلفية داكنة جداً */
+    padding: 20px;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.skills-section .right-section {
+    justify-content: flex-start; 
+    padding-top: 5%;
+}
+
+.skills-content-area h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+.skills-content-area ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills-content-area ul li {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.skills-content-area ul li::before {
+    content: "\2022"; /* نقطة القائمة */
+    color: white; 
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+/* ============================================== */
+/* 4. تنسيقات المحتوى الخاصة بكل قسم (إضافة Work Experience) */
+/* ============================================== */
+
+/* --- تنسيقات قسم Work Experience --- */
+.work-experience-section {
+    /* إلغاء نظام الـ Split Design (left/right) */
+    display: block; 
+    height: 100vh; /* يبقى بارتفاع كامل الشاشة */
+    background-color: #4682B4; /* اللون الأزرق الموحد */
+    color: white;
+    padding: 5% 10%; /* هامش داخلي */
+    text-align: center; /* توسيط العنوان */
+}
+
+.work-experience-section .work-title {
+    font-size: 4.5em;
+    font-weight: bold;
+    margin-bottom: 70px;
+    color: #082b43; /* لون العنوان أغمق قليلاً ليظهر على الخلفية */
+}
+
+.trainings-container {
+    display: flex; /* لترتيب التدريبين بجانب بعضهما */
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: left; /* لإعادة محاذاة النص إلى اليسار داخل كل عمود */
+}
+
+.training-block {
+    width: 45%; /* كل تدريب يأخذ تقريباً نصف المساحة */
+    padding: 20px;
+}
+
+.training-block h2 {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #082b43; /* لون أغمق لعناوين التدريب */
+}
+
+.training-block ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* تنسيق نقاط القائمة */
+.training-block ul li {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.training-block ul li::before {
+    content: "\2022"; /* نقطة القائمة */
+    color: white; 
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+.sprint {
+    width: 45%; /* كل تدريب يأخذ تقريباً نصف المساحة */
+    padding: 20px;
+}
+
+.sprint h2 {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #07263a; /* لون أغمق لعناوين التدريب */
+}
+
+.sprint ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* تنسيق نقاط القائمة */
+.sprint ul li {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.sprint ul li::before {
+    content: "\2022"; /* نقطة القائمة */
+    color: white; 
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+/* ... (التنسيقات السابقة) ... */
+
+/* ============================================== */
+/* 4. تنسيقات المحتوى الخاصة بكل قسم (إضافة Offered Services) */
+/* ============================================== */
+
+/* --- تنسيقات قسم Offered Services --- */
+.services-section {
+    background-color: #4682B4; /* اللون الأزرق الموحد */
+    color: white;
+    /* الترتيب معكوس: العنوان على اليسار والقائمة على اليمين */
+    flex-direction: row; 
+    /* إزالة الـ filter: none; لو كان موجوداً في الأقسام الأخرى التي لا تستخدم خلفية كودية */
+}
+
+/* تنسيق منطقة العنوان (القسم الأيسر الجديد) */
+.services-title-area {
+    flex: 1; /* يأخذ نفس المساحة تقريبًا مثل left-section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5%;
+}
+
+.service-title-text {
+    font-size: 4.5em; /* حجم كبير */
+    font-weight: bold;
+    color: #051f30; /* لون غامق للعناوين */
+    line-height: 1.1;
+    text-align: left;
+}
+
+/* تنسيق منطقة القائمة (القسم الأيمن الجديد) */
+.services-list-area {
+    flex: 1.5; /* يأخذ نفس المساحة تقريبًا مثل right-section */
+    padding: 5% 5% 5% 0; /* هامش لضبط المسافات */
+    display: flex;
+    align-items: center; /* لتوسيط القائمة رأسيًا قليلاً */
+}
+
+.services-list-area ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.services-list-area ul li {
+    font-size: 1.2em;
+    line-height: 2; /* مسافة أكبر بين الأسطر */
+    margin-bottom: 10px; /* مسافة بين كل عنصر قائمة */
+}
+
+.services-list-area ul li::before {
+    content: "\2022"; /* نقطة القائمة */
+    color: white; 
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+/* ... (التنسيقات السابقة) ... */
+
+/* ============================================== */
+/* 4. تنسيقات المحتوى الخاصة بكل قسم (إضافة Achievement) */
+/* ============================================== */
+
+/* --- تنسيقات قسم Achievement --- */
+.achievement-section {
+    /* يشبه Work Experience: خلفية موحدة وتنسيق مركزي */
+    display: block; 
+    height: 100vh; 
+    background-color: #4682B4; /* اللون الأزرق الموحد */
+    color: white;
+    padding: 5% 10%; 
+    text-align: left; /* محاذاة النص على اليسار */
+}
+
+.achievement-section .achievement-title {
+    font-size: 4.5em;
+    font-weight: bold;
+    margin-bottom: 50px;
+    /* اللون أغمق قليلاً ليبرز */
+    color: #051f30; 
+    text-align: left; 
+}
+
+.achievement-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.achievement-list li {
+    font-size: 1.2em;
+    line-height: 2; 
+    margin-bottom: 10px; 
+}
+
+.achievement-list li::before {
+    content: "\2022"; /* نقطة القائمة */
+    color: white; 
+    font-weight: bold;
+    display: inline-block; 
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* ... (التنسيقات السابقة) ... */
+
+/* ============================================== */
+/* 3. تحديد الخلفيات الجديدة (إضافة Thank You BG) */
+/* ============================================== */
+
+/* ... (الخلفيات السابقة) ... */
+
+/* 5. خلفية قسم الشكر (Thank You) */
+.thank-you-bg-style {
+    background-image: url('Screenshot 2025-10-18 211330.png'); /* الصورة الكودية على اليمين */
+   
+}
+
+/* ============================================== */
+/* 4. تنسيقات المحتوى الخاصة بكل قسم (إضافة Thank You) */
+/* ============================================== */
+
+/* --- تنسيقات قسم Thank You --- */
+
+/* القسم يستخدم تنسيق معكوس (reversed) لذا left-section (الكود) سيكون على اليمين و right-section (النص) على اليسار */
+.thank-you-section.reversed {
+    flex-direction: row-reverse; /* هذا يضمن أن النص (right-section) يظهر أولاً على اليسار */
+}
+
+.thank-you-section .thank-you-text-area {
+    /* لإلغاء تنسيق right-section الافتراضي الذي يعتمد على justify-content: flex-start; */
+    justify-content: space-between; /* للتوزيع بين العنوان والتذييل */
+    align-items: flex-start;
+    padding-top: 5%; /* لضبط محاذاة العنوان */
+    padding-bottom: 5%; /* لضبط محاذاة التاريخ */
+    
+    /* التأكد من أن هذه المنطقة تستخدم اللون الموحد */
+    background-color: #4682B4; 
+}
+
+.thank-you-title {
+    padding-top: 10%;
+    font-size: 4.5em;
+    font-weight: bold;
+    color: #051f30; 
+    line-height: 1.1;
+    margin-bottom: 0;
+}
+
+.thank-you-presented {
+    /* Presented by: Mahmoud Taher */
+    padding-bottom: 15%;
+    font-size: 1.4em;
+    font-weight: bold;
+    position: relative;
+    top: 50%; /* وضعها في المنتصف تقريباً */
+    transform: translateY(-50%);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.thank-you-date {
+    /* Date: 11th September 2025 */
+    font-size: 0.9em;
+    font-weight: normal;
+    margin-top: auto; /* يدفعه للأسفل */
+}
+/* ... (التنسيقات السابقة) ... */
+
+/* ============================================== */
+/* 4. تنسيقات المحتوى الخاصة بكل قسم (إضافة Let's Connect) */
+/* ============================================== */
+
+/* --- تنسيقات قسم Let's Connect --- */
+.connect-section {
+    /* تنسيق الخلفية الموحدة */
+    display: flex; /* نستخدم flexbox لتوسيط المحتوى رأسيًا وأفقيًا */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #4682B4; /* اللون الأزرق الموحد */
+    color: white;
+    text-align: center; 
+    flex-direction: column;
+}
+
+.connect-section .connect-title {
+    font-size: 5em; /* حجم كبير جداً */
+    font-weight: normal;
+    color: white; /* اللون أبيض كما في الصورة */
+    margin-bottom: 50px;
+}
+
+.connect-section .contact-detail {
+    font-size: 1.4em;
+    line-height: 2; /* مسافة بين معلومات الاتصال */
+    margin: 5px 0;
+}
+/* تنسيق شريط التقدم */
+#progress-bar {
+    position: fixed; /* يجعله ثابتاً في أعلى الشاشة */
+    top: 0;
+    left: 0;
+    height: 5px; /* ارتفاع الشريط */
+    background-color: #36454F; /* لون الشريط (غامق قليلاً ليظهر) */
+    width: 0%; /* يبدأ العرض من صفر */
+    z-index: 1000; /* يجعله يظهر فوق جميع العناصر الأخرى */
+}
+/* ============================================== */
+/* استعلامات الوسائط: للتجاوب على الهواتف والأجهزة اللوحية */
+/* ============================================== */
+
+/* ============================================== */
+/* كود التجاوب (RESPONSIVE) - يجب أن يكون في نهاية الملف */
+/* ============================================== */
+
+@media (max-width: 768px) {
+    
+    /* 1. إعدادات BODY العامة لمنع التمرير الأفقي والمشاكل الهامشية */
+    body {
+        overflow-x: hidden !important; 
+    }
+    
+    /* 2. الإعدادات الأساسية لجميع الأقسام (Split Sections) */
+    .page-section {
+        height: auto !important; /* ارتفاع يتمدد ليناسب المحتوى */
+        min-height: 100vh; /* على الأقل شاشة كاملة */
+        flex-direction: column !important; /* تحويل الترتيب إلى عمودي */
+        padding: 0 !important; /* إلغاء الهامش الخارجي للتخلص من أي مسافة غير مرغوبة */
+    }
+
+    /* 3. إلغاء خاصية FLEX وجعل الأقسام الجانبية 100% عرض */
+    .left-section, .right-section, 
+    .services-title-area, .services-list-area {
+        flex: none !important; 
+        width: 100% !important;
+        padding: 10% 8% !important; /* زيادة الهامش الداخلي لراحة العين */
+    }
+    
+    /* 4. معالجة الأقسام ذات الترتيب المعكوس */
+    /* يتم تحويلها أيضاً إلى عمودي عادي (العنصر الأول في HTML يظهر أولاً) */
+    .about-me-section.reversed, .thank-you-section.reversed {
+        flex-direction: column !important; 
+    }
+
+    /* 5. تعديل أحجام العناوين والنصوص */
+    h1, .connect-title, .thank-you-title {
+        font-size: 2.5em !important;
+        line-height: 1.2 !important;
+    }
+    h2 {
+        font-size: 1.2em !important;
+    }
+    
+    /* 6. تعديل قسم التعريف (Intro) */
+    .intro-section .right-section {
+        justify-content: flex-start !important;
+        padding-top: 15% !important;
+    }
+    .footer-info {
+        position: static !important;
+        text-align: left !important;
+        margin-top: 30px !important;
+    }
+
+    /* 7. تعديل قسم العمل (Work Experience) والأقسام الشبيهة */
+    .trainings-container {
+        flex-direction: column !important; /* تحويل العمودين إلى عمود واحد */
+        justify-content: flex-start !important;
+        align-items: flex-start !important;
+    }
+    .training-block {
+        width: 100% !important;
+        margin-bottom: 30px !important;
+    }
+
+    /* 8. تعديل قسم المهارات والخدمات (العنوان الكبير) */
+    .skills-section .left-section, .services-title-area {
+        height: auto !important;
+        padding: 15% 8% !important; /* زيادة التباعد الرأسي */
+    }
+    .section-title, .service-title-text {
+         text-align: center !important;
+    }
+    
+    /* 9. تعديل قسم "شكراً لوقتك" */
+    .thank-you-section .thank-you-text-area {
+        justify-content: flex-start !important;
+    }
+    .thank-you-presented, .thank-you-date {
+        position: static !important;
+        transform: none !important;
+    }
+}
